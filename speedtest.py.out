@@ -25,6 +25,10 @@ def make_human(num, suffix='B'):
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
+# def arg_parse():
+#     """"""
+#     pass
+
 #create temporary randomised file to prevent any compression from affecting the result
 RANDOMFILE = '/tmp/tmpfile{}'.format(int(random()*1000))
 os.system('dd if=/dev/urandom bs=100K count=1 iflag=fullblock of=' + RANDOMFILE + ' &> /dev/null')
@@ -46,6 +50,7 @@ if len(sys.argv) == 1:
             if line.find('#') == -1:
                 LOCATIONS = LOCATIONS + (line.strip('\n'),)
 else:
+
     if sys.argv[1] != "--locations":
         sys.exit('''Invalid syntax.
               Example usage:
